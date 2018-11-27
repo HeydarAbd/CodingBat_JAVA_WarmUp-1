@@ -1,0 +1,317 @@
+public class Session01_1127 {
+//ea-q-le
+
+	/*
+  *  This is the main method within the class
+  *   where we can test our methods
+  *  Sample test cases are created for Task1
+  */
+	public static void main(String[] args) {
+  
+		Session01_1127 task1 = new Session01_1127();
+		
+		// within weekday, not on a vacation
+		if ( task1.sleepIn(true, false) == false)
+			System.out.println("PASS");
+		else
+			System.out.println("FAIL");
+		
+		// on a weekend (!weekday), not on a vacation
+		if ( task1.sleepIn(false, false) == true)
+			System.out.println("PASS");
+		else
+			System.out.println("FAIL");
+		
+		// within weekday, on a vacation
+		if ( task1.sleepIn(true, true) == true)
+			System.out.println("PASS");
+		else
+			System.out.println("FAIL");
+		
+		// on a weekend, on a vacation
+		if (task1.sleepIn(false, true) == true )
+			System.out.println("PASS");
+		else
+			System.out.println("FAIL");
+		
+		/*
+		* Math methods you might find useful
+		*   int larger = Math.max(43, -534);
+		*     // larger of two parameters (it takes only 2 params)
+		*   int larger3 = Math.max(Math.max(23, 453), 435);
+		*
+		*   int smaller = Math.min(24, -5);
+		*     // returns smaller parameter
+		*
+		*   int distance = Math.abs(smaller - larger);
+		*     // returns absolute value
+		*
+		*   double price = Math.round(456374.33 / 98.934);
+		*
+		*
+		*   double randomNum = Math.random(); // this returns a random double between 0 and 1 (non-inclusive)
+		*   double random100 = Math.random() * 100;
+		*   int rand100Integers = (int) (Math.random() * 100);
+		*   int randUpTo15 = (int) (Math.random() * 15);
+		*/
+		
+	}
+	
+	/* 
+    Name: sleepIn
+   
+	  The parameter weekday is true if it is a weekday, 
+	  and the parameter vacation is true if we are on vacation. 
+	  
+	  We sleep in if it is not a weekday or we're on vacation. 
+	  Return true if we sleep in.
+	 */
+	public boolean sleepIn(boolean weekday, boolean vacation) {
+		  // the shortes solution
+    return !weekday || vacation;
+		
+      // the 'easiest' solution in order to understand the flow of logic
+    //		if (weekday == false)
+    //			return true;
+    //		
+    //		if (vacation == true)
+    //			return true;
+    //		
+    //		return false;
+	}
+	
+  
+  
+	/* 
+    Name: monkeyTrouble
+   
+	  We have two monkeys, a and b, 
+	  
+	  and the parameters aSmile and bSmile indicate if each is smiling. 
+	  
+	  We are in trouble if they are both smiling 
+	  or 
+	  if neither of them is smiling. 
+	  
+	  Return true if we are in trouble.
+	 */
+	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+      // the 'easiest' solution to follow the flow of logic
+    //		boolean trouble = false;
+    //		
+    //		if (aSmile && bSmile)
+    //			trouble = true;
+    //		
+    //		if (!aSmile && !bSmile)
+    //			trouble = true;
+    //		
+    //		return trouble;
+		
+      // the shortest solution
+		return (aSmile && bSmile) || (!aSmile && !bSmile);
+	}
+
+	
+	/* 
+    Name: sumDouble
+	  
+	  Given two int values, 
+	  return their sum. 
+	  
+	  If the two values are the same, 
+	  then return double their sum.
+	 */
+	public int sumDouble(int a, int b) {
+      // the 'easiest' solution to follow the flow of logic
+    //		int sum;
+    //		
+    //		if (a == b) {
+    //			sum = (a+b) * 2;
+    //		}else {
+    //			sum = (a+b);
+    //		}
+    //    return sum;
+
+      // another 'easy' solution to follow the flow of logic
+    //    int total;
+    //
+    //		if (a != b) {
+    //			total = (a+b);
+    //		}else {
+    //			total = (a+b) * 2;
+    //		}
+    //		
+    //		return total;
+
+      // the shortest solution
+    return (a == b) ? ( (a+b) * 2) : (a+b);
+	}
+	
+	
+	/*
+	  Name: diff21();
+	  
+	  Given an int n, 
+	  
+	  return the absolute difference between n and 21, 
+	  
+	  if n is over 21
+	  return double the absolute difference .
+	 */
+	public int diff21(int n) {
+      // the 'easiest' solution to follow the flow of logic
+    //		int ret;
+    //		
+    //		if (n > 21) {
+    //			ret = Math.abs(n-21) * 2;
+    //		}else {
+    //			ret = Math.abs(n-21);
+    //		}
+    //		
+    //		return ret;
+		
+      // the shortest solution
+		return (n > 21) ? ( Math.abs(n-21) *2 ) : (Math.abs(n-21));
+	}
+	
+	
+	/*
+	  Name: parrotTrouble
+	  
+	  We have a loud talking parrot. 
+	  The "hour" parameter is the current hour time in the range 0..23. 
+	  
+	  We are in trouble 
+	  if the parrot is talking 
+	  and 
+	  	the hour is before 7 
+	  	or 
+	  	after 20. 
+	  
+	  Return true if we are in trouble.
+	 */
+	public boolean parrotTrouble(int hour, boolean talking) {
+      // the 'easiest' solution to follow the flow of logic
+    //		boolean trouble = false;
+    //		
+    //		if (talking == true) {
+    //			if (hour < 7 || hour > 20) {
+    //				trouble = true;
+    //			}else {
+    //				trouble = false;
+    //			}
+    //		}
+    //		
+    //		return trouble;
+		
+		return ( talking && (hour < 7 || hour > 20) );
+	}
+	
+	
+	/* 
+    Name: makes10
+	  
+	  Given 2 ints, a and b, 
+	  
+	  return true 
+	  	if one of them is 10 
+	  	or 
+	  	if their sum is 10
+	 */
+	
+	public boolean makes10(int a, int b) {
+      // the 'easiest' solution to follow the flow of logic
+    //		boolean is10 = false;
+    //		
+    //		if (a == 10 || b == 10)
+    //			is10 = true;
+    //		
+    //		if ( (a+b) == 10)
+    //			is10 = true;
+    //		
+    //		return is10;
+		
+      // the shortest solution
+		return (a == 10 || b == 10) || ( (a+b) == 10);
+	}
+	
+	
+	/*
+	  Name: nearHundred
+	  
+	  Given an int n, 
+	  
+	  return true 
+	  	if it is within 10 of 100 
+	  	or 
+	  	it is within 10 of 200. 
+	  
+	  Note: Math.abs(num) computes the absolute value of a number.
+	 */
+	
+	public boolean nearHundred(int n) {
+      // the 'easiest' solution to follow the flow of logic
+    //		boolean isNear = false;
+    //		
+    //		if ( Math.abs( n-100 ) <= 10 )
+    //			isNear = true;
+    //		
+    //		if ( Math.abs( n-200 ) <= 10 )
+    //			isNear = true;
+    //		
+    //		return isNear;
+		
+      // the shortest solution
+		return (Math.abs(n-100) <= 10) || (Math.abs(n-200) <= 10);
+	}
+  /*
+    Some notes on Math.abs() method:
+	// Math.abs() returns 'absolute' value of the parameter
+	//	'absolute' can be understood as a positive value or
+	//	as a distance if you are subtracting two numbers within this method
+	//	EX:
+	//		distance between +5 and +10 is ==> (10-5) == 5
+	//		since you don't always know which number is higher
+	//		you can simply use Math.abs(5 - 10); which will return 5 (not -5)
+	
+	//		distance between -2 and 10 is ==> (-2 -10) == -12
+	//		Math.abs( -2 -10) will give you ==> +12 
+	//		the distance between two numbers on a linear surface
+	*/
+	
+	/*
+	  Name: posNeg
+	  
+	  Given 2 int values, 
+	  
+	  return true 
+	  if one is negative 
+	  and 
+	  one is positive. 
+	  
+	   if the parameter "negative" is true, 
+	   then 
+	   return true 
+	   only if both are negative.
+	 */
+	
+	public boolean posNeg(int a, int b, boolean negative) {
+      // the 'easiest' solution to follow the flow of logic
+    //		boolean isTrue = false;
+    //		
+    //		if (negative == true) {
+    //			if (a < 0 && b < 0)
+    //				isTrue = true;
+    //		}else {
+    //			if ( (a < 0 && b >= 0) || (b < 0 && a >= 0) ) {
+    //				isTrue = true;
+    //			}
+    //		}
+    //		
+    //		return isTrue;
+		  
+      // the shortest solution
+		return ( negative )? ( a < 0 && b < 0 ) : ( (a < 0 && b >= 0) || (b < 0 && a >= 0) );
+	}
+	
+}
