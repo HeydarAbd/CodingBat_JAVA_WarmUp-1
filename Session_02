@@ -1,0 +1,350 @@
+public class Session02_1130 {
+//ea-q-le
+
+	/*
+  *  This is the main method within the class
+  *   where we can test our methods
+  *  Sample test cases are created for Task1
+  */
+	
+	public static void main(String[] args) {
+		// a lot of test codes and calls go here
+		
+	}
+	
+	
+	/*
+	 Name: notString
+	  
+	  Given a string, 
+	  return a new string where "not " has been added to the front. 
+	  
+	  However, if the string already begins with "not", return the string unchanged. 
+	  
+	  Note: use .equals() to compare 2 strings.
+	 */
+	public String notString(String str) {
+	      // the 'easiest' solution in order to understand the flow of logic
+	//		if (str.length() >= 3 && str.substring(0, 3).equals("not")) {
+	//			return str;
+	//		}else {
+	//			return "not " + str;
+	//		}
+		
+		  // the same solution with single return line
+	//		return (str.length() >= 3 && str.substring(0, 3).equals("not")) ? str : "not " + str;
+		
+			// the shortest solution
+		return (str.startsWith("not")) ? str : "not " + str;
+	}
+	
+	
+	/*
+	  Name: missingChar
+	  
+	  Given a non-empty string and an int n, 
+	  return a new string where the char at index n has been removed. 
+	  
+	  The value of n will be a valid index of a char in the original string 
+	  (i.e. n will be in the range 0..str.length()-1 inclusive).
+	 */
+	public String missingChar(String str, int n) {
+		// don't have to check for n < str.length()
+	
+			// the shortest solution
+		return str.substring(0, n) + str.substring(n+1);
+	      
+			// the 'easiest' solution in order to understand the flow of logic
+		//		char ch = str.charAt(n);	
+		//		return str.replace("" + ch, "");
+	}
+	/* a brief look into how a length of a string is 
+	 * compared to the index numbers
+	 * 
+	 * Length:
+	 * 					    123456
+	 * Length of "kitten" = KITTEN
+	 * 	
+	 * 
+	 * Index:			
+	 * 	where the cursor blinks?
+	 * 					    012345				    
+	 * index numbers ==>    KITTEN
+	 */
+     	
+	
+	/*
+	  Name: frontBack
+	  
+	   Given a string, 
+	  
+	   return a new string 
+	   where the first and last chars have been exchanged.
+	 */
+	public String frontBack(String str) {
+			// solution with substring() method of String class
+		//		if (str.length() <= 1) {
+		//			return str;
+		//		}else {
+		//			return str.substring(str.length()-1) + str.substring(1, str.length()-1) + str.substring(0, 1);
+		//		}
+				
+			// the solution above, in one line, with ternary
+		//		return ( (str.length() <= 1)? str : (str.substring(str.length()-1) + str.substring(1, str.length()-1) + str.substring(0, 1)) );
+				
+			// the 'easiest' solution in order to understand the flow of logic
+		//		if (str.length() <= 1) {
+		//			return str;
+		//		}else {
+		//			int secondCharIndex = 1;
+		//			int lastCharIndex = str.length()-1;
+		//			
+		//			char firstChar = str.charAt(0);
+		//			char lastChar = str.charAt( str.length()-1 );
+		//			
+		//			String middleChars = str.substring(secondCharIndex, lastCharIndex);
+		//			
+		//			return lastChar + middleChars + firstChar;
+		//		}
+				
+		
+			// similar to the 'easiest' solution above, without 'else' statement
+		//		if (str.length() <= 1)
+		//			return str;
+		//		
+		//		int secondCharIndex = 1;
+		//		int lastCharIndex = str.length()-1;
+		//		
+		//		char firstChar = str.charAt(0);
+		//		char lastChar = str.charAt( str.length()-1 );
+		//		
+		//		String middleChars = str.substring(secondCharIndex, lastCharIndex);
+		//		
+		//		return lastChar + middleChars + firstChar;
+				
+			// the shorter version of the above solution
+		//		if (str.length() <= 1) {
+		//			return str;
+		//		}else {
+		//			return str.charAt(str.length()-1) + str.substring(1, str.length()-1) + str.charAt(0);
+		//		}
+		
+			// the shortest solution
+		return (str.length() <= 1) ? str : str.charAt(str.length()-1) + str.substring(1, str.length()-1) + str.charAt(0);
+	}
+	
+	
+	/*
+	  Name: front3
+	  
+	  	Given a string, 
+	  
+	    we'll say that the front is the first 3 chars of the string. 
+	   
+	    If the string length is less than 3, 
+	  	the front is whatever is there. 
+	  
+	    Return a new string which is 3 copies of the front.
+	 */
+	public String front3(String str) {
+	      // the 'easiest' solution in order to understand the flow of logic
+		//		String front = "";
+		//		
+		//		if (str.length() <= 3) {
+		//			front = str;
+		//		}else {
+		//			front = str.substring(0, 3);
+		//		}
+		//		
+		//		return front + front + front;
+		
+			// the shortest solution
+		return (str.length()<=3)? str+str+str : str.substring(0, 3)+str.substring(0, 3)+str.substring(0, 3);
+	}
+	
+	
+	/*
+	  Name: backAround
+	  
+	   Given a string, 
+	  
+	   take the last char 
+	   and 
+	   return a new string with the last char added at the front and back, 
+	   
+	   so "cat" yields "tcatt". 
+	  
+	   The original string will be length 1 or more.
+	 */
+	public String backAround(String str) {
+		//no need to check for str.length() > 0
+		
+			// looking at 2 options that the character to be repeated
+		//		char charToRepeat = str.charAt( str.length()-1 );
+		String charToRepeat = str.substring(str.length() - 1);
+		
+		return charToRepeat + str + charToRepeat;
+			// have one line of solution above, which can be extended further
+	}
+	
+	
+	/*
+	  Name: or35
+	  
+	   Return true 
+	  
+	   if the given non-negative number 
+	   is a multiple of 3 
+	   or 
+	   a multiple of 5. 
+	   
+	   Use the % "mod" operator
+	 */
+	public boolean or35(int n) {
+	      	// the 'easiest' solution in order to understand the flow of logic
+		//		if (n % 3 == 0)
+		//			return true;
+		//		
+		//		if (n % 5 == 0)
+		//			return true;
+		
+			// the 'shorter' way of the solution above
+		//		if (n % 3 == 0 || n % 5 == 0)
+		//			return true;
+		//		
+		//		return false;
+				
+			// even 'shorter' way of the solution above
+		//		return (n % 3 == 0 || n % 5 == 0)? true : false;
+		
+			// the shortest solution
+			// remember, if you are returning a boolean, 
+			//	you don't need to declare 'true' : 'false' for the ternary
+			//  the outcome of the ternary is automatically going to return
+			//	either 'true' or 'false' anyway
+		return (n % 3 == 0 || n % 5 == 0);
+	}
+	/* COMMENTS ON % (modulus) OPERATION
+	 * 
+	 * What does % do?
+	 * It divides a number with the number AND returns 
+	 * 	NOT THE RESULT but the REMAINDER
+	 * 
+	 * e.g. 10 % 3 == 1		vs 		10 / 3 == 3 
+	 * 		10 % 2 == 0		vs		10 / 2 == 5
+	 * 
+	 * a dollar consists of 4 quarters ==> 100 / 25 == 4
+	 * 
+	 * a quarter consists of 2 dimes AND a nickel ==> 	25 / 10 == 2 dimes (10 cents each, total 20 cents)
+	 * 												  	25 % 10 == 1 nickel(5 cents, remaining of 25 cents - 2 dimes)
+	 * 													25 % (10*2) == 5 remaining cents (a nickel)
+	 */
+	
+	
+	/*
+	  Name: front22
+	  
+	   Given a string, 
+	  
+	   take the first 2 chars 
+	   and 
+	   return the string with the 2 chars added at both the front and back, 
+	  
+	   so "kitten" yields"kikittenki". 
+	  
+	   If the string length is less than 2, use whatever chars are there.
+	 */
+	public String front22(String str) {
+	      // the 'easiest' solution in order to understand the flow of logic
+		//		String front2 = "";
+		//		
+		//		if (str.length() <= 2) {
+		//			front2 = str;
+		//		}else {
+		//			front2 = str.substring(0, 2);
+		//		}
+		//		
+		//		return front2 + str + front2;
+		
+			// the shortest solution
+		return (str.length() <= 2) ? (str + str + str) : (str.substring(0,2) + str + str.substring(0,2));
+	}
+	
+	
+	/*
+	   Name: startHi
+	  
+	   Given a string, 
+	  
+	   return true 
+	   if the string starts with "hi" and false otherwise.
+	 */
+	public boolean startHi(String str) {
+			// the shortest solution
+			// utilizing .toStartsWith() method of String class
+			//	this method automatically checks for the length
+			//	of the 'substring' it is comparing
+		//		return str.toLowerCase().startsWith("Hi");
+		
+	      	// the 'easiest' solution in order to understand the flow of logic
+			//  checking for the legnth first because if the string
+			//  is shorter that 2 letters, it cannot be equal to 'hi' anyway
+		return str.length() >= 2 && str.substring(0, 2).equals("hi");
+	}
+	
+	
+	/*
+	  Name: icyHot
+	  
+	   Given two temperatures, 
+	  
+	   return true if one is less than 0 and the other is greater than 100.
+	 */
+	public boolean icyHot(int temp1, int temp2) {
+	      	// the 'easiest' solution in order to understand the flow of logic
+		//		if (temp1 < 0 && temp2 > 100)
+		//			return true;
+		//		
+		//		if (temp2 < 0 && temp1 > 100)
+		//			return true;
+		//		
+		//		return false;
+		
+			// the shorter output of the code above
+		//		return (temp1 < 0 && temp2 > 100) || (temp2 < 0 && temp1 > 100);
+		
+			// the alternative solution utilizing Math class methods
+		int larger = Math.max(temp1, temp2);
+		int smaller = Math.min(temp1, temp2);
+		
+		return larger > 100 && smaller < 0;
+		
+			// the shorter version of the code above
+		//		return Math.max(temp1, temp2) > 100 && Math.min(temp1, temp2) < 0;
+	}
+	
+	
+	/*
+	  Name: in1020
+	  
+	   Given 2 int values, 
+	  
+	   return true 
+	  
+	   if either of them is in the range 10..20 inclusive.
+	 */
+	public boolean in1020(int a, int b) {
+	      	// the 'easiest' solution in order to understand the flow of logic
+		//		if (a >= 10 && a <= 20)
+		//			return true;
+		//		
+		//		if (b >= 10 && b <= 20)
+		//			return true;
+		//		
+		//		return false;
+		
+			// the shortest solution
+		return (a >= 10 && a <= 20) || (b >= 10 && b <= 20);
+	}
+	
+}
